@@ -1,0 +1,40 @@
+# Importing from import
+
+```
+from botocore.vendored import requests
+
+retry = requests.packages.urllib3.util.retry.Retry(
+    total=retries,
+    read=retries,
+    connect=retries,
+    backoff_factor=backoff_factor,
+    status_forcelist=status_forcelist,
+)
+adapter = requests.adapters.HTTPAdapter(max_retries=retry)
+```
+
+# Alternative 1 Temporarily change your working directory
+
+```
+import os
+os.chdir("**Put here the directory where you have the file with your function (com a barra invertida)**")
+from file import function
+os.chdir("**Put here the directory where you were working**")
+```
+
+# Alternative 2 Add the directory where you have your function to sys.path
+
+```
+import sys
+sys.path.append("**Put here the directory where you have the file with your function**")
+from file import function
+```
+
+# Handle Exception
+
+```
+try:
+    r4547
+except Exception as e:
+    print(e)
+```
